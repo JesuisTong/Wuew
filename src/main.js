@@ -19,7 +19,7 @@ Vue.component(Container.name, Container);
 const Index = () => import(/* webpackChunkName: "View/index" */ './View/App.vue');
 const NotFound = () => import(/* webpackChunkName: "View/notfound" */ './View/notFound.vue');
 const PixivImgs = () => import(/* webpackChunkName: "View/pixivImgs" */ './View/pixivImage.vue');
-const Production = () => import(/* webpackChunkName: "View/prodution" */ './View/production.vue');
+const Illust = () => import(/* webpackChunkName: "View/prodution" */ './View/illust.vue');
 
 
 const router = new VueRouter({
@@ -27,16 +27,7 @@ const router = new VueRouter({
   routes: [
     { path: '/index', component: Index },
     { path: '/pixiv', component: PixivImgs },
-    {
-      path: '/production',
-      component: Production,
-      children: [
-        {
-          path: 'q',
-          component: Production
-        }
-      ]
-    },
+    { path: '/illust/:uri', component: Illust },
     { path: '/*', component: NotFound },
   ]
 });

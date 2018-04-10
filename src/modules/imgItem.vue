@@ -1,5 +1,5 @@
 <template>
-  <div class="item" @click="onClick(item)">
+  <div class="item" @click="onClick">
     <div class="img"  v-bind:style="{ backgroundImage: `url(${item.image_urls.square_medium || item.image_urls.medium})` }"></div>
     <div class="card">
       <div class="artist">{{ item.user.name || '' }}</div>
@@ -12,11 +12,8 @@
 export default {
   props: ['item'],
   methods: {
-    onClick: function (item) {
-      return () => {
-        console.log(item)
-        // this.$router.push({ url: item });
-      }
+    onClick: function () {
+      this.$router.push({ path: `/illust/${this.item.id}` });
     }
   }
 }
