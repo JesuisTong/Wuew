@@ -27,10 +27,11 @@ const router = new VueRouter({
   routes: [
     { path: '/index', component: Index },
     { path: '/pixiv', component: PixivImgs },
-    { path: '/illust/:uri', component: Illust },
-    { path: '/*', component: NotFound },
+    { path: '/pixiv/illust/:uri', component: Illust },
+    { path: '*', component: NotFound },
   ]
 });
+
 
 const navList = [
   {
@@ -105,19 +106,31 @@ const navList = [
 
 new Vue({
   router,
+  data: {
+    transitionName: 'slide-right'
+  },
+  watch: {
+    $route: function(to, from) {
+      if (to.path.split('/').length > from.path.split('/').length) {
+        this.transitionName = 'slide-right';
+      } else {
+        this.transitionName = 'slide-left';
+      }
+    }
+  },
   render(creatElement) {
     return creatElement(
       'div',
-      {
-        class: {
-          root: true
-        }
-      },
+      { class: 'root' },
       [
         creatElement(Header, {
           props: { navList }
         }),
-        creatElement('router-view')
+        creatElement(
+          'transition',
+          { props: { name: this.transitionName } },
+          [creatElement('router-view', { class: 'child-view' })]
+        )
       ].filter(i => i)
     );
   }

@@ -13,7 +13,7 @@ export default {
   props: ['item'],
   methods: {
     onClick: function () {
-      this.$router.push({ path: `/illust/${this.item.id}` });
+      this.$router.push({ path: `/pixiv/illust/${this.item.id}` });
     }
   }
 }
