@@ -14,7 +14,7 @@
 export default {
   name: 'illust',
   created() {
-    const imgs = JSON.parse(window.localStorage.getItem('imgs'));
+    const { imgs, expired } = JSON.parse(window.localStorage.getItem('imgs')) || {};
     if (!$.isEmptyObject(imgs) && imgs.some(i => (i.id == this.$route.params.uri))) {
       this.illust = imgs.find(i => (i.id == this.$route.params.uri));
       return;

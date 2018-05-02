@@ -28,8 +28,9 @@ export default {
     imgItem
   },
   created: function () {
-    if (window.localStorage.getItem('imgs')) {
-      this.imgs = JSON.parse(window.localStorage.getItem('imgs'));
+    const { expired, imgs } = JSON.parse(window.localStorage.getItem('imgs')) || {};
+    if (expired > Date.now() && imgs.length > 0) {
+      this.imgs = imgs;
       return;
     }
     this.throttle = true;
@@ -42,7 +43,7 @@ export default {
     }).done(res => {
       this.page += 1;
       this.imgs = [...this.imgs, ...res.illusts];
-      window.localStorage.setItem('imgs', JSON.stringify(this.imgs));
+      window.localStorage.setItem('imgs', JSON.stringify({ imgs: this.imgs, expired: Date.now() + 3600 * 24 * 1000 }));
       this.throttle = false;
     });
   },
@@ -75,7 +76,7 @@ export default {
         }).done(res => {
           this.page += 1;
           this.imgs = [...this.imgs, ...res.illusts];
-          window.localStorage.setItem('imgs', JSON.stringify(this.imgs));
+          window.localStorage.setItem('imgs', JSON.stringify({ imgs: this.imgs, expired: Date.now() + 3600 * 24 * 1000 }));
           this.throttle = false;
         });
       }
