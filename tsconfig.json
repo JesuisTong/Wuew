@@ -1,0 +1,28 @@
+// tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es6",
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es2016"
+    ],
+    "typeRoots": [
+      "./src/@types"
+    ],
+    "baseUrl": "./src",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  },
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

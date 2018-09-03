@@ -6,21 +6,27 @@
 }
 
 .slide-left-enter, .slide-left-enter-to {
+  position: fixed;
   z-index: -1;
 }
 .slide-left-leave {
+  position: fixed;
   transform: translate3d(0, 0, 0);
 }
 .slide-left-leave-to {
+  position: fixed;
   transform: translate3d(-100%, 0, 0);
 }
 
 .slide-right-enter {
+  position: fixed;
   transform: translate3d(100%, 0, 0);
 }
 .slide-right-enter-to {
+  position: fixed;
   transform: translate3d(0, 0, 0);
 }
 .slide-right-leave, .slide-right-leave-to {
+  position: fixed;
   z-index: -1; 
 }

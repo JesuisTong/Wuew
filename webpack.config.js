@@ -11,7 +11,7 @@ const env = process.env.NODE_ENV;
 var config = {
   mode: env,
   entry: {
-    main: './src/main.js',
+    main: './src/main.ts',
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -27,11 +27,19 @@ var config = {
         options: {
           postcss: [require('autoprefixer')()],
           loaders: {
+            ts: 'ts-loader',
             script: 'babel-loader',
             scss: 'vue-style-loader!css-loader!sass-loader',
           },
           esModule: true,
-          // other vue-loader options go here
+        }
+      },
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
         }
       },
       {
@@ -48,11 +56,8 @@ var config = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg|ttf|woff)$/,
+        test: /(^ace-builds\/)|\.(png|jpg|gif|svg|ttf|woff)$/,
         loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
       }
     ]
   },
@@ -78,9 +83,9 @@ var config = {
   },
   resolve: {
     alias: {
-      modules: path.resolve(__dirname, 'src/modules')
+      modules: path.resolve(__dirname, './src/modules')
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', '.js', '.ts', '.vue', '.json']
   },
   externals: {
     $: "window.$"

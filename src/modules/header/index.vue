@@ -43,29 +43,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'topHeader',
-  props: ['navList'],
-  data: function () {
-    return {
-      showHide: false
-    };
-  },
-  created() {
-    // 暴露在window下控制header显示
-    window.handleHeader = this.handleHeader;
-  },
-  methods: {
-    handleCommand(e) {
-      this.$router.push({ path: e });
-    },
-    handleHeader() {
-      this.showHide = !this.showHide;
-    }
-  }
-}
-</script>
+<script lang="ts" src="./index.ts"></script>
 
 <style lang="scss" scoped>
   .header {

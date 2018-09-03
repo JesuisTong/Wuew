@@ -20,18 +20,24 @@ const Index = () => import(/* webpackChunkName: "View/index" */ './View/App.vue'
 const NotFound = () => import(/* webpackChunkName: "View/notfound" */ './View/notFound.vue');
 const PixivImgs = () => import(/* webpackChunkName: "View/pixivImgs" */ './View/pixivImage.vue');
 const Illust = () => import(/* webpackChunkName: "View/prodution" */ './View/illust.vue');
-
+const CodeEditor = () => import(/* webpackChunkName: "View/codeEditor" */ './View/codeEditor/index.vue');
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
     { path: '/index', component: Index },
+    { path: '/code', component: CodeEditor },
     { path: '/pixiv', component: PixivImgs },
     { path: '/pixiv/illust/:uri', component: Illust },
     { path: '*', component: NotFound },
   ]
 });
 
+// window.addEventListener('unload', logData, false);
+// function logData() {
+//     $.ajax('/laga');
+//     navigator.sendBeacon("/log", '123');
+// }
 
 const navList = [
   {

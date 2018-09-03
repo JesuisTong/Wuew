@@ -10,16 +10,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'footer',
-  data: function () {
-    return {
-      tel: '057100001111'
-    }
-  }
-}
-</script>
+<script lang="ts" src="./index.ts"></script>
+
 
 <style lang="scss" scoped>
 .footer {

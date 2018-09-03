@@ -1,6 +1,6 @@
 <template>
   <div class="pixiv" ref="imgWall">
-    <imgItem v-for="item in imgs" :item="item" :key="item.id" />
+    <imgItem v-for="item in imgs" :item="item" :key="`${item.id}${item.create_date}`" />
   </div>
 </template>
 
@@ -31,6 +31,7 @@ export default {
     const { expired, imgs } = JSON.parse(window.localStorage.getItem('imgs')) || {};
     if (expired > Date.now() && imgs.length > 0) {
       this.imgs = imgs;
+      this.page += window.parseInt(imgs.length / 20);
       return;
     }
     this.throttle = true;

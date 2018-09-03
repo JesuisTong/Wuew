@@ -3,7 +3,7 @@
     <div class="title">
       {{ illust.title }}
     </div>
-    <img width="300px" height="400px" :src="illust.image_urls.large" ref="img" alt="error">
+    <img :src="illust.image_urls.large" ref="img" alt="error">
     <div class="scope-area" ref="scopeArea" v-show="showScope">
       <img width="600px" height="800px" :src="illust.image_urls.large" alt="error" ref="scopeImg">
     </div>

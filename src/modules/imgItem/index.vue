@@ -8,16 +8,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: ['item'],
-  methods: {
-    onClick: function () {
-      this.$router.push({ path: `/pixiv/illust/${this.item.id}` });
-    }
-  }
-}
-</script>
+<script lang="ts" src="./index.ts"></script>
 
 <style lang="scss" scoped>
 .item {
