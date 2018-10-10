@@ -21,10 +21,12 @@ const NotFound = () => import(/* webpackChunkName: "View/notfound" */ './View/no
 const PixivImgs = () => import(/* webpackChunkName: "View/pixivImgs" */ './View/pixivImage.vue');
 const Illust = () => import(/* webpackChunkName: "View/prodution" */ './View/illust.vue');
 const CodeEditor = () => import(/* webpackChunkName: "View/codeEditor" */ './View/codeEditor/index.vue');
+const TensorFlow = () => import(/* webpackChunkName: "View/tfjsTest" */ './View/tfjsTest/index.vue');
 
 const router = new VueRouter({
   mode: 'history',
   routes: [
+    { path: '/tf', component: TensorFlow },
     { path: '/index', component: Index },
     { path: '/code', component: CodeEditor },
     { path: '/pixiv', component: PixivImgs },

@@ -12,3 +12,4 @@ yarn-error.log
 *.sln
 .editorconfig
 jsconfig.json
+package-lock.json

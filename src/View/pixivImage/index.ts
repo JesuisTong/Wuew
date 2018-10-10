@@ -2,23 +2,23 @@ import Vue from 'vue';
 import $ from '$';
 import imgItem from "modules/imgItem";
 
-const getSearchQuery: object = (str: string = '') => {
-  if (!str) str = location.href;
-  const splice = str.split('?');
-  if (!splice[1]) return {};
-  const arr = splice[1].split('&');
-  let obj = {};
-  arr.forEach(i => {
-    if (!!i) {
-      const item = i.split('=');
-      obj = {
-        ...obj,
-        [item[0]]: decodeURIComponent(item[1])
-      }
-    }
-  });
-  return obj;
-};
+// const getSearchQuery: object = (str: string = '') => {
+//   if (!str) str = location.href;
+//   const splice = str.split('?');
+//   if (!splice[1]) return {};
+//   const arr = splice[1].split('&');
+//   let obj = {};
+//   arr.forEach(i => {
+//     if (!!i) {
+//       const item = i.split('=');
+//       obj = {
+//         ...obj,
+//         [item[0]]: decodeURIComponent(item[1])
+//       }
+//     }
+//   });
+//   return obj;
+// };
 
 export default Vue.extend({
   name: 'pixivImgs',
